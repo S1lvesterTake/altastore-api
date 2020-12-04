@@ -1,7 +1,7 @@
 package main
 
 import (
-	"altaonlinestore-api/infrastructure/persistence/repository/db"
+	"altastore-api/infrastructure/persistence/repository/db"
 	"fmt"
 	"log"
 	"os"
