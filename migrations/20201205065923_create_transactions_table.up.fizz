@@ -1,5 +1,5 @@
 create_table("transactions") {
-    t.Column("transaction_id", "integer", {primary: true})
+    t.Column("id", "integer", {primary: true})
     t.Column("customer_id", "string", {})
     t.Column("transaction_number", "string", {})
     t.Column("code_id", "string", {})

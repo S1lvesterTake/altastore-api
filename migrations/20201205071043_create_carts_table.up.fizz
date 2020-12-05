@@ -1,6 +1,6 @@
 create_table("carts") {
     t.Column("cart_id", "integer", {primary: true})
-    t.Column("customer_id", "integer", {})
+    t.Column("id", "integer", {})
     t.Column("product_id", "integer", {})
     t.Column("code_id", "integer", {})
     t.Column("quantity", "integer", {})

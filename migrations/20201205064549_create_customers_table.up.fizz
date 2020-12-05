@@ -1,5 +1,5 @@
 create_table("customers") {
-    t.Column("customer_id", "integer", {})
+    t.Column("id", "integer", {})
     t.Column("name", "string", {})
     t.Column("phone_number", "string", {"size" :15})
     t.Column("address", "string", {})
