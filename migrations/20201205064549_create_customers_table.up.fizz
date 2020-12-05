@@ -1,0 +1,10 @@
+create_table("customers") {
+    t.Column("customer_id", "integer", {})
+    t.Column("name", "string", {})
+    t.Column("phone_number", "string", {"size" :15})
+    t.Column("address", "string", {})
+    t.Column("gender", "string", {"size":10})
+    t.Column("created_at", "timestamp", {"null": true})
+    t.Column("updated_at", "timestamp", {"null": true})
+    t.Column("deleted_at", "timestamp", {"null": true})
+}

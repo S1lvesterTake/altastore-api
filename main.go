@@ -37,6 +37,8 @@ func main() {
 	//login route
 	loginRoute(v1, db)
 
+	///// end of route ////
+
 	e := godotenv.Load()
 	if e != nil {
 		fmt.Print(e)

@@ -1,0 +1,9 @@
+create_table("transaction_details") {
+    t.Column("trans_detail_id", "integer", {primary: true})
+    t.Column("transaction_id", "integer", {})
+    t.Column("product_id", "integer", {})
+    t.Column("quantity", "integer", {})
+    t.Column("detail_amount", "bigint", {})
+    t.Column("created_at", "timestamp", {"null": true})
+    t.Column("updated_at", "timestamp", {"null": true})
+}
