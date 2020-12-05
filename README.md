@@ -9,10 +9,9 @@ Provide API for Alta Online Store.
 - Install [soda](https://gobuffalo.io/en/docs/db/toolbox/) to create migration database.
 - Install [wire](https://github.com/google/wire) for Dependency Injection setup.
 
-
-## Instalation
-
 ## Database Migration
+ - Create database
+ - Run `soda migrate up` 
 
 
 ## Running APP
