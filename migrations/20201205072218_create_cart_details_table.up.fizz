@@ -1,5 +1,5 @@
 create_table("cart_details") {
-    t.Column("cart_detail_id", "integer", {primary: true})
+    t.Column("id", "integer", {primary: true})
     t.Column("product_id", "integer", {})
     t.Column("quantity", "integer", {})
     t.Column("cart_detail_amount", "bigint", {})

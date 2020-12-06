@@ -1,5 +1,5 @@
 create_table("categories") {
-    t.Column("categories_id", "string", {primary: true})
+    t.Column("id", "string", {primary: true})
     t.Column("name", "string", {})
     t.Column("created_at", "timestamp", {"null": true})
     t.Column("updated_at", "timestamp", {"null": true})
