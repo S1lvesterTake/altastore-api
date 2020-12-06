@@ -53,10 +53,10 @@ func main() {
 }
 
 func loginRoute(route *gin.RouterGroup, db *gorm.DB) {
-	// loginHandler := LoginHandler(db)
+	handler := LoginHandler(db)
 
 	v1 := route.Group("/login")
 	{
-		v1.POST("")
+		v1.POST("", handler.LoginHandler)
 	}
 }
