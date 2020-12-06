@@ -41,6 +41,8 @@ func main() {
 	//login route
 	loginRoute(v1, db)
 	productRoute(v1, db)
+	cartRoute(v1, db)
+	transactionRoute(v1, db)
 
 	///// end of route ////
 
@@ -71,5 +73,27 @@ func productRoute(route *gin.RouterGroup, db *gorm.DB) {
 	v1 := route.Group("/product")
 	{
 		v1.POST("")
+		v1.GET("")           //get product by category ?filter[category]=
+		v1.POST("/category") //create category
+	}
+}
+
+func cartRoute(route *gin.RouterGroup, db *gorm.DB) {
+
+	v1 := route.Group("/cart")
+	{
+		v1.POST("")              //create cart {create cart, cart details}
+		v1.GET("")               //show cart , cart detail and product
+		v1.DELETE("/delete/:id") //delete product from cart
+	}
+}
+
+func transactionRoute(route *gin.RouterGroup, db *gorm.DB) {
+
+	v1 := route.Group("/transaction")
+	{
+		v1.GET("")               // filter by status filter[status]
+		v1.POST("/checkout/:id") //create checkout
+
 	}
 }
