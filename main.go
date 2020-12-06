@@ -2,6 +2,8 @@ package main
 
 import (
 	"altastore-api/infrastructure/persistence/repository/db"
+	_auth "altastore-api/middleware"
+
 	"fmt"
 	"log"
 	"os"
@@ -34,8 +36,11 @@ func main() {
 		})
 	})
 
+	v1.Use(_auth.AuthenticationRequired())
+
 	//login route
 	loginRoute(v1, db)
+	productRoute(v1, db)
 
 	///// end of route ////
 
@@ -58,5 +63,13 @@ func loginRoute(route *gin.RouterGroup, db *gorm.DB) {
 	v1 := route.Group("/login")
 	{
 		v1.POST("", handler.LoginHandler)
+	}
+}
+
+func productRoute(route *gin.RouterGroup, db *gorm.DB) {
+
+	v1 := route.Group("/product")
+	{
+		v1.POST("")
 	}
 }
