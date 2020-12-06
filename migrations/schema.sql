@@ -24,7 +24,7 @@ DROP TABLE IF EXISTS `access_tokens`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `access_tokens` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `user_id` int NOT NULL,
+  `account_id` int NOT NULL,
   `token` varchar(255) NOT NULL,
   `expired_at` bigint DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
@@ -222,4 +222,4 @@ CREATE TABLE `transactions` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-05 15:18:07
+-- Dump completed on 2020-12-06 19:23:56
