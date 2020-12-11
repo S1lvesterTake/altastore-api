@@ -38,7 +38,7 @@ func (c *productRepository) GetCategoryByID(ctx context.Context, categoryID stri
 	return category, nil
 }
 
-func (c *productRepository) GetListProductByCategory(ctx context.Context, pagination domain.PaginationRequest) []domain.Product {
+func (c *productRepository) GetListProduct(ctx context.Context, filter domain.FilterRequest) []domain.Product {
 	var products []domain.Product
 
 	return products
