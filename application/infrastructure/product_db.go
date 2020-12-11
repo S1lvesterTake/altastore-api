@@ -8,6 +8,6 @@ import (
 //ProductRepository repository
 type ProductRepository interface {
 	CreateProduct(context.Context, domain.Product) (domain.Product, error)
-	CreateCategory(context.Context, string) (domain.Category, error)
-	GetListProductByCategory(context.Context, string) []domain.Product
+	GetListProductByCategory(context.Context, domain.PaginationRequest) []domain.Product
+	GetCategoryByID(context.Context, string) (domain.Category, error)
 }

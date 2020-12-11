@@ -7,7 +7,7 @@ import (
 //Product struct models
 type Product struct {
 	base.ModelSoftDelete
-	CategoryID  uint64 `gorm:"column:category_id" json:"category_id"`
+	CategoryID  string `gorm:"column:category_id" json:"category_id"`
 	ProductName string `gorm:"column:product_name" json:"product_name"`
 	Description string `gorm:"column:description" json:"description"`
 	Stock       uint   `gorm:"column:stock" json:"stock"`

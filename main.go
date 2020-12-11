@@ -69,12 +69,11 @@ func loginRoute(route *gin.RouterGroup, db *gorm.DB) {
 }
 
 func productRoute(route *gin.RouterGroup, db *gorm.DB) {
-
+	handler := CreateProductHandler(db)
 	v1 := route.Group("/product")
 	{
-		v1.POST("")
-		v1.GET("")           //get product by category ?filter[category]=
-		v1.POST("/category") //create category
+		v1.POST("", handler.CreateProductHandler)
+		v1.GET("") //get product by category ?filter[category]=
 	}
 }
 
