@@ -61,11 +61,13 @@ DROP TABLE IF EXISTS `cart_details`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `cart_details` (
   `id` int NOT NULL AUTO_INCREMENT,
+  `cart_id` int NOT NULL,
   `product_id` int NOT NULL,
   `quantity` int NOT NULL,
   `cart_detail_amount` bigint NOT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -78,15 +80,14 @@ DROP TABLE IF EXISTS `carts`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `carts` (
-  `id` int NOT NULL,
-  `cart_id` int NOT NULL AUTO_INCREMENT,
-  `product_id` int NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
+  `customer_id` int NOT NULL,
   `code_id` int NOT NULL,
   `quantity` int NOT NULL,
   `cart_total_amount` bigint NOT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`cart_id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -222,4 +223,4 @@ CREATE TABLE `transactions` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-06 19:23:56
+-- Dump completed on 2020-12-07  6:23:09

@@ -1,8 +1,10 @@
 create_table("cart_details") {
     t.Column("id", "integer", {primary: true})
+    t.Column("cart_id", "integer", {})
     t.Column("product_id", "integer", {})
     t.Column("quantity", "integer", {})
     t.Column("cart_detail_amount", "bigint", {})
     t.Column("created_at", "timestamp", {"null": true})
     t.Column("updated_at", "timestamp", {"null": true})
+    t.Column("deleted_at", "timestamp", {"null": true})
 }
