@@ -5,6 +5,7 @@ import (
 	domain "altastore-api/domain/entities"
 	"context"
 	"errors"
+	"strconv"
 
 	"github.com/jinzhu/gorm"
 )
@@ -38,8 +39,23 @@ func (c *productRepository) GetCategoryByID(ctx context.Context, categoryID stri
 	return category, nil
 }
 
-func (c *productRepository) GetListProduct(ctx context.Context, filter domain.FilterRequest) []domain.Product {
+func (c *productRepository) GetListProduct(ctx context.Context, pagination domain.FilterRequest) ([]domain.Product, int) {
 	var products []domain.Product
+	var count int
+	page, _ := strconv.Atoi(pagination.Page)
+	limit, _ := strconv.Atoi(pagination.Limit)
 
-	return products
+	offset := (page - 1) * limit
+
+	tx := c.DB.Model(&products)
+
+	if pagination.Filter != "" {
+		tx = tx.Where("category_id = ?", pagination.Filter)
+	}
+	tx.Count(&count)
+
+	if pagination.Page != "" || pagination.Limit != "0" {
+		tx.Offset(offset).Limit(pagination.Limit).Find(&products)
+	}
+	return products, count
 }

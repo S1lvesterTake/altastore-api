@@ -3,6 +3,8 @@ package entities
 //PaginationRequest pagination request model
 type FilterRequest struct {
 	Search string
+	Sort   string
+	Filter string
 	Page   string
 	Limit  string
 }

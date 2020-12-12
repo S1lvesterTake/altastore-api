@@ -8,6 +8,7 @@ package main
 import (
 	"altastore-api/application/use_case/authentication/login"
 	"altastore-api/application/use_case/product/create_product"
+	"altastore-api/application/use_case/product/list_product"
 	"altastore-api/infrastructure/persistence/repository/db"
 	"altastore-api/infrastructure/transport/http"
 	"github.com/jinzhu/gorm"
@@ -28,4 +29,11 @@ func CreateProductHandler(db2 *gorm.DB) create_product.CreateProductHandler {
 	productRepository := db.NewProductRepository(db2)
 	createProductHandler := create_product.NewCreateProductHandler(infrastructureRequest, productRepository)
 	return createProductHandler
+}
+
+func ListProductHandler(db2 *gorm.DB) list_product.ListProductHandler {
+	infrastructureRequest := request.NewRequest()
+	productRepository := db.NewProductRepository(db2)
+	listProductHandler := list_product.NewListProductHandler(infrastructureRequest, productRepository)
+	return listProductHandler
 }
