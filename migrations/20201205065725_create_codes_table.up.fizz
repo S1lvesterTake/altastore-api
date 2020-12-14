@@ -1,4 +1,4 @@
 create_table("codes") {
-    t.Column("id", "string", {})
+    t.Column("id", "string", {primary : true})
     t.Column("name", "string", {})
 }
