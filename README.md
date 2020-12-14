@@ -3,7 +3,6 @@
 ## Description
 Provide API for Alta Online Store.
 
-
 ## Requirement
 - Install Golang v1.15
 - Install [soda](https://gobuffalo.io/en/docs/db/toolbox/) to create migration database.
@@ -11,9 +10,11 @@ Provide API for Alta Online Store.
 
 ## Database Migration
  - Create database
- - Run `soda migrate up` 
+ - Run `make migrate` 
 
 
 ## Running APP
+- Run `make run` 
 
 ## API
+please refers to this [documentation](https://app.swaggerhub.com/apis/S1lvesterTake/altastore-api-doc/1.0.0)
