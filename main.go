@@ -79,12 +79,12 @@ func productRoute(route *gin.RouterGroup, db *gorm.DB) {
 }
 
 func cartRoute(route *gin.RouterGroup, db *gorm.DB) {
-
+	ccHandler := CreateCartHandler(db)
 	v1 := route.Group("/cart")
 	{
-		v1.POST("")              //create cart {create cart, cart details}
-		v1.GET("")               //show cart , cart detail and product
-		v1.DELETE("/delete/:id") //delete product from cart
+		v1.POST("", ccHandler.CreateCartHandler) //create cart {create cart, cart details}
+		v1.GET("")                               //show cart , cart detail and product
+		v1.DELETE("/delete/:id")                 //delete product from cart
 	}
 }
 

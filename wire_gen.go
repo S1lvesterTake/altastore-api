@@ -7,6 +7,7 @@ package main
 
 import (
 	"altastore-api/application/use_case/authentication/login"
+	"altastore-api/application/use_case/cart/create_cart"
 	"altastore-api/application/use_case/product/create_product"
 	"altastore-api/application/use_case/product/list_product"
 	"altastore-api/infrastructure/persistence/repository/db"
@@ -36,4 +37,12 @@ func ListProductHandler(db2 *gorm.DB) list_product.ListProductHandler {
 	productRepository := db.NewProductRepository(db2)
 	listProductHandler := list_product.NewListProductHandler(infrastructureRequest, productRepository)
 	return listProductHandler
+}
+
+func CreateCartHandler(db2 *gorm.DB) create_cart.CreateCartHandler {
+	infrastructureRequest := request.NewRequest()
+	cartRepository := db.NewCartRepository(db2)
+	productRepository := db.NewProductRepository(db2)
+	createCartHandler := create_cart.NewCreateCartHandler(infrastructureRequest, cartRepository, productRepository)
+	return createCartHandler
 }

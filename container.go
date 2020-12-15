@@ -7,6 +7,7 @@ import (
 	"github.com/jinzhu/gorm"
 
 	"altastore-api/application/use_case/authentication/login"
+	"altastore-api/application/use_case/cart/create_cart"
 	"altastore-api/application/use_case/product/create_product"
 	"altastore-api/application/use_case/product/list_product"
 
@@ -28,4 +29,9 @@ func CreateProductHandler(db *gorm.DB) create_product.CreateProductHandler {
 func ListProductHandler(db *gorm.DB) list_product.ListProductHandler {
 	wire.Build(request.NewRequest, repo.NewProductRepository, list_product.NewListProductHandler)
 	return list_product.ListProductHandler{}
+}
+
+func CreateCartHandler(db *gorm.DB) create_cart.CreateCartHandler {
+	wire.Build(request.NewRequest, repo.NewCartRepository, repo.NewProductRepository, create_cart.NewCreateCartHandler)
+	return create_cart.CreateCartHandler{}
 }

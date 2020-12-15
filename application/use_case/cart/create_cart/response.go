@@ -20,10 +20,11 @@ type (
 	}
 	//CartItemData .
 	CartItemData struct {
+		ID             uint64  `json:"id"`
 		CartID         uint64  `json:"cart"`
 		ProductID      uint64  `json:"product_id"`
 		Quantity       int     `json:"quantity"`
-		CartItemAmount int64   `json:"cart_item_amount"`
+		CartItemAmount float64 `json:"cart_item_amount"`
 		Product        Product `json:"product"`
 	}
 	//Product .
@@ -42,6 +43,7 @@ func ResponseMapper(cartData domain.Cart, cartItemsData []domain.CartDetail) Cre
 	if len(cartItemsData) != 0 {
 		for _, item := range cartItemsData {
 			cartItems = append(cartItems, CartItemData{
+				ID:             item.ID,
 				CartID:         item.CartID,
 				ProductID:      item.ProductID,
 				Quantity:       item.Quantity,

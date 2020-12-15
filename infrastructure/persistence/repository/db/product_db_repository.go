@@ -59,3 +59,12 @@ func (c *productRepository) GetListProduct(ctx context.Context, pagination domai
 	}
 	return products, count
 }
+
+func (c *productRepository) GetProductByID(ctx context.Context, productID string) (domain.Product, error) {
+	product := domain.Product{}
+	if c.DB.First(&product, "id = ?", productID).RecordNotFound() {
+		return product, errors.New("Produk dengan id " + productID + " tidak ditemukan")
+	}
+
+	return product, nil
+}
